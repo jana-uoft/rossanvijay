@@ -19,10 +19,10 @@ def index(request):
     EXPERIENCE = requests.get(static_url+"work_experience.json").json()
     PROJECT = requests.get(static_url+"projects.json").json()
 
-    # INSTAGRAM = requests.get("https://api.instagram.com/v1/users/self/media/recent/?access_token=508727293.1677ed0.69d96553324f4468917af711a368260b&count=16").json()
-    # INSTA_PHOTOS = ""
-    # for item in (INSTAGRAM["data"]):
-    #     INSTA_PHOTOS += '<img src="'+item["images"]["standard_resolution"]["url"]+'" alt="'+item["caption"]["text"]+'">'
+    INSTAGRAM = requests.get("https://api.instagram.com/v1/users/self/media/recent/?access_token=508727293.1677ed0.69d96553324f4468917af711a368260b&count=16").json()
+    INSTA_PHOTOS = ""
+    for item in (INSTAGRAM["data"]):
+        INSTA_PHOTOS += '<img src="'+item["images"]["standard_resolution"]["url"]+'" alt="'+item["caption"]["text"]+'">'
     
 
     context = {}
@@ -40,7 +40,7 @@ def index(request):
         context['FILTERS'] += [x.upper() for x in item["skills"].strip().split(' ')]
     context['FILTERS'] = sorted(list(set(context['FILTERS'])))
 
-    # context["INSTA_PHOTOS"] = INSTA_PHOTOS
+    context["INSTA_PHOTOS"] = INSTA_PHOTOS
 
 
     return render(request, 'portfolio/index.html', context)
