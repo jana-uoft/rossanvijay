@@ -26,14 +26,14 @@ SECRET_KEY = '%x7c^23zwql*!3^zjistyum-l0_1!1lvi@7@&t=zg6(9ltjhsj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['personal-webspace.herokuapp.com', '.jana19.com', ".herokuapp.com", '127.0.0.1']
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['rossanvijay.herokuapp.com', '.rossanvijay.com', ".herokuapp.com", '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'portfolio.apps.PortfolioConfig',
-    'sudoku.apps.SudokuConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
